@@ -1,24 +1,22 @@
-let display = document.getElementById('displayText')
+let display = document.getElementById('displayText');
 
 function clearDisplay() {
-    display.textContent = 0
+    display.textContent = '0';
 }
 
 function appendToDisplay(char) {
-    if (display.textContent === 0) {
-        let display = document.getElementById('displayText');
+    if (display.textContent === '0') {
         display.textContent = char;
     } else {
         display.textContent += char;
     }
-
 }
 
 function calculateResult() {
-    const display = document.getElementById('displayText');
     try {
-        display.textContent = eval(display.textContent.replace('×', '*').replace('÷', '/'));
-        display.textContent = display.textContent.replace('*', '×').replace('/', '÷');
+        let expression = display.textContent.replace(/×/g, '*').replace(/÷/g, '/');
+        let result = eval(expression);
+        display.textContent = result;
     } catch (e) {
         display.textContent = 'Error';
     }
