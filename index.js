@@ -1,7 +1,7 @@
 let display = document.getElementById('displayText')
 
 function clearDisplay() {
-    display.textContent = {}
+    display.textContent = 0
 }
 
 function appendToDisplay(char) {
